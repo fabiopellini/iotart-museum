@@ -411,7 +411,7 @@ function loadVoices(){ try{ voices=speechSynthesis.getVoices()||[]; }catch(e){ v
 if("speechSynthesis" in window){ loadVoices(); speechSynthesis.onvoiceschanged=loadVoices; }
 function pickVoice(){ return voices.find(v=>/^it[-_]?IT/i.test(v.lang)) || voices.find(v=>/^it/i.test(v.lang)) || null; }
 function cleanForSpeech(t){
-  return String(t).replace(/[«»""'']/g,' ').replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu,'')
+  return String(t).replace(/['`\u00B4]/g,'\u2019').replace(/[\u00AB\u00BB\u201C\u201D\u201E\u201F"]/g,' ').replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu,'')
     .replace(/\s*[—–]\s*/g,', ').replace(/\s+/g,' ').trim();
 }
 function speak(text,force){
