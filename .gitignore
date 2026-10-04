@@ -1,0 +1,3 @@
+# niente da ignorare per una pagina statica; tieni i file di sistema fuori dal repo
+.DS_Store
+Thumbs.db
